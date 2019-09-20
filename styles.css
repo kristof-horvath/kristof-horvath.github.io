@@ -3,15 +3,80 @@
   padding:0px;
 }
 
-#octocat {
-  display: block;
-  width:384px;
-  margin: 50px auto;
+/* se https://stackoverflow.com/questions/6805482/css3-transition-animation-on-load */
+@keyframes fadein {
+  from { opacity: 0}
+  to   { opacity: 1}
 }
 
-p {
-  display: block;
-  width: 400px;
-  margin: 50px auto;
-  font: 30px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+html{
+  background-color: #EAE7DC;
+  font-family: 'Roboto', sans-serif;
+  animation: fadein 1s;
 }
+
+
+.container{
+  --width: 30vw;
+  width: var(--width);
+  margin-left: calc(50vw - (var(--width) / 2));
+  line-height: 30px;
+  border-spacing: 25px 25px;
+  border-collapse: separate;
+}
+
+table{
+  width: 100%;
+  background-color: #D8C3A5;
+  padding: 25px 25px 25px 25px;
+}
+
+h1{
+  color: rgb(233, 128, 116);
+  opacity: 0.4;
+  text-align: center;
+  transition: opacity .4s;
+  font-family: 'Josefin Slab', cursive;
+  letter-spacing: 0.2em;
+  line-height: 1.2em;
+}
+
+h1:hover{
+  opacity: 0.8;
+}
+
+h2{
+  color: white;
+  text-align: left;
+  background-color: #E98074;
+  border: solid;
+  border-width: 0px 0px 3px 0px;
+  border-color: #E85A4F;
+  padding: 12px 10px 10px 15px;
+  font-family: 'Josefin Slab', cursive;
+  letter-spacing: 0.1em;
+  line-height: 1.2em;
+  font-size: 2em;
+}
+
+#title{
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+/* finere hrefs - http://mrmrs.cc/links/ */
+a {
+  transition: color .4s;
+  color: white;
+  font-size: 1.3em;
+}
+
+a:link,
+a:visited { color: white; }
+a:hover   { color: #E98074; }
+a:active  {
+  transition: color .3s;
+  color: #f7f1e3;
+}
+
+.link { text-decoration: none; }
