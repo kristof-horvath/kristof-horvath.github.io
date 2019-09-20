@@ -21,14 +21,16 @@ html{
   width: var(--width);
   margin-left: calc(50vw - (var(--width) / 2));
   line-height: 30px;
-  border-spacing: 25px 25px;
-  border-collapse: separate;
+  border-style: solid;
+  border-radius: 25px;
+  border-color: transparent;
 }
 
 table{
   width: 100%;
   background-color: #D8C3A5;
   padding: 25px 25px 25px 25px;
+  border-radius: 0px 0px 25px 25px;
 }
 
 h1{
@@ -52,6 +54,7 @@ h2{
   border: solid;
   border-width: 0px 0px 3px 0px;
   border-color: #E85A4F;
+  border-radius: 5px 5px 0px 0px;
   padding: 12px 10px 10px 15px;
   font-family: 'Josefin Slab', cursive;
   letter-spacing: 0.1em;
