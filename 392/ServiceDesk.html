@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>392 ServiceDesk</title>
+</head>
+
+<body>
+    <h1>Hvordan sette opp GitHub pages på Windows 10!</h1>
+    <h3>En enkel html webside som beskriver i enkle steg hvordan du kan sette opp din egen GitHub pages side!</h3>
+
+    <!-- Innledning -->
+    <p> I denne opplæringen av GitHub bruker jeg Windows Powershell. Du kan også bruke Git for Windows med de samme
+        kommandoene!</p>
+    <ul>
+        <li>
+            <h3>Steg 1: Last ned Git!</h3>
+            <p>Du kan laste Git for windows ved å klikke <a href="https://git-scm.com/download/win">her</a></p>
+            <!-- Bilde av git nettsiden som starter nedlasting automatisk. -->
+            <img src="img/step_1.png"> </img>
+            <p>Her vil nedlastingen starte automatisk. Følg installasjonsveiviseren sine instruksjoner.</p>
+        </li>
+
+        <li>
+            <h3>Steg 2: Lag et repository</h3>
+            <h4>Steg 2a: Lag en mappe.</h4>
+            <p>Lag en mappe på datamskinen hvor du vil at nettstedet ditt skal oppbevares. Jeg kaller mapper min
+                "repo"<br>
+                som er kort for repository. </p>
+            <!-- Bilde av filstrukturen i filutforskeren -->
+            <img src="img/step_2a.png"> </img>
+            <h4>Steg 2b: Åpne Windows powershell.</h4>
+            <p>Hold inne "Shift"-knappen og høyreklikk på mappen du har laget, jeg klikker på mappen som heter
+                "repo".<br>
+                Der vil du se en liste alternativer, du skal klikke på "Åpne Powershell-vinduet her".<br>
+                Min datamaskin er konfigurert på engelsk, og derfor står det for meg, "Open Powershell Window here".
+            </p>
+            <!-- Bilde av alternativer etter shift-høyre-klikk på mappe -->
+            <img src="img/step_2b.png"> </img>
+            <p>Nå vil du se Powershell-vinduet som ser slik ut:</p>
+            <img src="img/step_2c.png"> </img>
+
+            <h4>Steg 2c: Bruk Git til å lage et nytt repository</h4>
+            <p>Skriv kommandoen: git init</p>
+            <p>Da vil du se at det står "Initialized empty Git repository in D:/Google Drive/VG3/IT1/repo/.git/".<br>
+                Gratulerer, du har laget ditt første lokale repository.
+            </p>
+        </li>
+
+        <li>
+            <h3>Steg 3: Lage GitHub repository!</h3>
+            <h4>Steg 3a: Lag en GitHub konto.</h4>
+            <p>Lag en GitHub bruker ved å klikke <a href="https://GitHub.com/join">her</a><br>
+                Fyll inn informasjonsboksene, og bekreft eposten!<br>
+                NB! Det kan være lurt å skru på tofaktorverifisering for å sikre kontoen og repositoriene dine.</p>
+
+            <h4>Steg 3b: Lag et GitHub repository. </h4>
+            <p>Klikk på den grønne knappen hvor det står "new", oppe i det venstre panelet.</p>
+            <!-- Bilde av GitHub hovedside -->
+            <img src="img/step_3a.png"> </img>
+            <p>Fyll deretter inn "Repository name", her kan du kalle repositoriet det du vil.<br>Trykk deretter "Create
+                repository".</p>
+            <img src="img/step_3b.png"> </img>
+        </li>
+
+        <li>
+            <h3>Steg 4: Synkroniser GitHub repository med det lokale repositoryet ditt.</h3>
+            <h4>Steg 4a: Finn git url-en din, "Clone or download"</h4>
+            <p>På siden til repositoriet ditt, finn den grønne "Clone or download" knappen, klikk på den, deretter
+                kopier lenken.</p>
+            <img src="img/step_3c.png"> </img>
+            <p>Finn Powershell-vinduet ditt, deretter skriv kommandoen: git remote add origin
+                https://github.com/brukernavn/nettsiden-min.git
+                Husk å bytte ut URL-en med din egen!.</p>
+
+            <h4>Steg 4b: git pull</h4>
+            <p>Skriv kommandoen: git pull origin master<br>Nå har du lastet ned alle filene fra repositoriet ditt.<br>Nå
+                kan du se nettsiden din lokalt ved å åpne html-filer.<br>Bruk en teksteditor, feks Visual Studio Code, å
+                modifiser filene.</p>
+            <img src="img/step_4b.png"> </img>
+            <h4>Steg 4c: oppdater GitHub repositoriet med dine endringer.</h4>
+            <p>Skriv kommandoenne i rekkefølge:<br>
+                git add<br>
+                git status<br>
+                git commit -m "Min første commit melding!"<br>
+                git push origin master</p>
+            <img src="img/step_4c.png"> </img>
+            <p>
+                Nå kan du sjekke GitHub repositoriet ditt, der bør det nå stå at du nettopp oppdaterte filene!
+            </p>
+        </li>
+
+    </ul>
+</body>
+
+</html>
