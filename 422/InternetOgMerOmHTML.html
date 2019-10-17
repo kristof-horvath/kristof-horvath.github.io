@@ -1,0 +1,100 @@
+<!-- Oppgaven
+
+Skriv kode (i bare) HTML. 
+Du skal presentere i filen: en lite oppsummering fra kapittel 4 (Internett). 
+Men, du skal lage en nettstede (HTML-fil) med lister, lenker, tabelle, bilde, video, lyd og et skjema til slutt.
+Bilde må vise din brukte filstruktur (se eksempel på side 59 i brettboka; organisere nettsteder slik at du får en hensiktsmessig filstruktur).
+Slutt av med en skjema hvor dere spør noe nyttig eller morsomt :).
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>422 Internet og mer om HTML</title>
+</head>
+
+<body>
+
+    <h1>422 Internet og mer om HTML</h1>
+    <h2>En liten oppsummering fra kapittel 4 (Internett)</h2>
+
+    <h2>Internett</h2>
+    <p>Et nettverk av nettverk som kobler datamaskiner sammen slik at de kan kommunisere med hverandre.<br>
+        For at de skal kunne kommunisere med hverandre må de bruke samme <em><abbr
+                title="En protokoll er en form for spilleregler, som bestemmer hvordan datamaksiner skal kommunisere.">protokoll</abbr></em>.<br>
+        Internett består av maskinvare, som fysisk kobler maskiner sammen gjennom for eksempel:
+        <ul>
+            <li>Kabler</li>
+            <li>Rutere</li>
+            <li>Tjenere</li>
+            <li>Mobiltårn</li>
+            <li>Satellitter</li>
+            <li>Radioer</li>
+            <li>Smarttelefoner</li>
+            <li>Andre apparater</li>
+        </ul>
+
+        Oppstod da Robert E. Kahn og Vinton Gray Cerf ville lage en måte for ansatte å dele ressurser, men endte opp med
+        at de ansatte heller delte filer og kommuniserte med hverandre.<br>
+        Du kan lese mer om hvordan internett oppstod <a href="https://en.wikipedia.org/wiki/History_of_the_Internet"
+            target="_blank" rel="nofollow">her</a>. </p>
+
+    <h3>Nettverk</h3>
+    <p>Når to datamaskiner er koblet sammen, har vi det som vi kaller et nettverk. <br>
+        Hvis vi kobler flere maskiner til, får vi et større nettverk. Alle maskiner kan kommunisere med hverandre.<br>
+        Når vi har nok maskiner, ender vi opp med Internett. </p>
+
+    <h3>Internettstandarder (protokoller)</h3>
+    <p>Det finnes mange forskjellige protokoller, som alle har sin jobb.<br>
+    </p>
+    <table border="1" cellpadding="3">
+        <tbody>
+            <h4>En oversikt over de mest brukte protokollene.</h4>
+            <tr>
+                <td>IP</td>
+                <td>Internet protocol</td>
+                <td>Kommunikasjon mellom maskiner.</td>
+            </tr>
+            <tr>
+                <td>TCP</td>
+                <td>Transmission Control Protocol</td>
+                <td>Forbindelsesorientert og pålitelig overføring av informasjon</td>
+            </tr>
+            <tr>
+                <td>HTTP</td>
+                <td>HypertextTransferProtocol</td>
+                <td>Brukes av nettlesere og tjenere slik at de kan kommunisere med hverandre.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+
+    <h3>Bilde av filstruktur</h3>
+    <!-- Har byttet ut den lokale "filsiten" (path), med en url, slik at du kan se bildet uten å trenge hele prosjektet. (Ville brukt src="media/filstruktur.png" -->
+    <p><img src="https://i.imgur.com/6a924Rx.png" alt="filstruktur" width="500" height="500" /></p>
+
+    <h3>Video</h3>
+    <video width="200" height="150" controls>
+        <source src="media/vid.mp4" type="video/mp4">
+        Ingen videoavspillings støtte.
+    </video>
+
+    <h3>Lyd</h3>
+    <audio controls>
+        <source src="media/lyd.mp3" type="audio/mpeg">
+        Ingen lydavspillings støtte.
+    </audio>
+
+    <h3>Spørreskjema</h3>
+    <form> <!-- form uten action, haha. Denne var ny. -->
+        Navn: <input type="text" /><br>
+        Kommentar: <br><textarea cols="20" rows="5"></textarea><br>
+        <input type="submit" value="Send skjema" />
+    </form>
+</body>
+
+</html>
