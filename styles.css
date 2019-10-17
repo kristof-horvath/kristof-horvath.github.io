@@ -65,6 +65,7 @@ h2{
 #title{
   margin-top: 10vh;
   margin-bottom: 10vh;
+  min-width: 390px;
 }
 
 /* finere hrefs - http://mrmrs.cc/links/ */
