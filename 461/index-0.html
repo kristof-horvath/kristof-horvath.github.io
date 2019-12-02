@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Har ikke tatt mye i bruk flex-box, kun i header. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600&display=swap" rel="stylesheet">
+
+    <!-- Simple script to handle radio buttons without a backend. -->
+    <script type="text/javascript">
+        // Variable to hold what site is selected in the radio form
+        var target_url = "";
+
+        // Redirect our site to the target_url
+        function go() {
+            window.location.href = target_url;
+        }
+
+        // Update which url is our target. 
+        function set_target_url(target) {
+            target_url = target;
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <ul class="nav">
+            <li class="alt">
+                <button class="navlink" onclick="location.href = '../index.html';" id="nav-buy">hjem</button>
+            </li>
+            <div>
+                <li class="tab">
+                    <button class="navlink" onclick="location.href = 'index-0.html';" id="default_item">index-0</button>
+                </li>
+                <li class="tab">
+                    <button class="navlink" onclick="location.href = 'index-1.html';" id="default_item">index-1</button>
+                </li>
+                <li class="tab">
+                    <button class="navlink" onclick="location.href = 'index-2.html';" id="default_item">index-2</button>
+                </li>
+            </div>
+        </ul>
+    </div>
+    <!-- Main content - Viewport 1 -->
+    <div class="tabcontent">
+        <div class="viewport-section home" id="home_id">
+            <div class="column">
+                <div class="intro">
+                    <h1>Index-0</h1>
+                    <h2>Den første av tre sider.</h2>
+                    <a class="button" href="#radios_id">Se andre nettsider</a>
+                </div>
+            </div>
+            <div id="information">
+                <h4> En enkel nettside med navigasjonsbar</h4>
+                <div class="copyright">
+                    <p>&copy; 2019 Kristof Horvath</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Radio boxes - Viewport 2 -->
+        <div class="viewport-section radios" id="radios_id">
+            <div class="radios-wrapper" style="top:150vh;">
+                <form id="radio-form">
+                    <label class="container">
+                        <h4>Index-0</h4>
+                        <h3>Radio bokser</h3>
+                        <input type="radio" name="radio" name="target_url"
+                            onchange="if(this.checked){set_target_url('index-0.html');}">
+                        <span class="rb"></span>
+                    </label>
+                    <label class="container">
+                        <h4>Index-1</h4>
+                        <h3>Lister</h3>
+                        <input type="radio" name="radio" name="target_url"
+                            onchange="if(this.checked){set_target_url('index-1.html');}">
+                        <span class="rb"></span>
+                    </label>
+                    <label class="container">
+                        <h4>Index-2</h4>
+                        <h3>Tabeller</h3>
+                        <input type="radio" name="radio" name="target_url"
+                            onchange="if(this.checked){set_target_url('index-2.html');}">
+                        <span class="rb"></span>
+                    </label>
+                </form>
+                <button onclick="go();">Gå til nettside</button>
+                <button onclick="location.href = '#home_id';">Rull opp igjen</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
