@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Carousel Maker for Instagram by Kristof S. H. Horvath</title>
+  <link href="/css/styles.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white py-6 shadow-md">
+        <div class="container mx-auto text-center">
+          <h1 class="text-4xl font-bold">Instagram Carousel Maker</h1>
+          <p class="mt-2 text-lg">Upload, edit, and crop images effortlessly.</p>
+        </div>
+      </header>
+
+
+  <main class="container mx-auto mt-8 space-y-6">
+    <!-- Canvas and Tools Section -->
+    <div class="bg-white p-5 rounded-lg shadow-lg space-y-6">
+            <div class="flex justify-between items-center">
+              <!-- Upload Button on the Left 
+              <div class="upload-button-wrapper">
+                <label for="upload" class="bg-gray-700 text-white px-6 py-3 rounded-lg shadow-md cursor-pointer hover:bg-gray-800 transition flex items-center space-x-2">
+                  <i class="fas fa-upload text-lg"></i>
+                  <span>Add</span>
+                </label>
+                <input type="file" id="upload" class="hidden" multiple>
+                
+              </div>-->
+              <div class="flex items-center space-x-4">
+                <!-- Upload Button -->
+                <label for="upload" class="bg-gray-700 text-white px-6 py-3 rounded-lg shadow-md cursor-pointer hover:bg-gray-800 transition flex items-center space-x-2">
+                  <i class="fas fa-upload text-xl"></i>
+                  <span>Add</span>
+                </label>
+                <input type="file" id="upload" class="hidden" multiple accept="image/*">
+              
+                <!-- Remove Image Button -->
+                <button id="removeImageButton" 
+                  class="bg-red-600 text-white px-6 py-3 rounded-lg shadow-md cursor-pointer hover:bg-red-700 transition flex items-center space-x-2">
+                  <i class="fas fa-trash text-xl"></i>
+                  <span>Remove</span>
+                </button>
+              </div>
+
+              <!-- Portrait and Square Buttons on the Right -->
+              <div class="button-group flex space-x-4">
+                <button id="instagramPortraitButton" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition flex items-center space-x-2">
+                  <i class="fas fa-portrait text-lg"></i>
+                  <span>Portrait</span>
+                </button>
+                <button id="squareButton" class="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md hover:bg-green-600 transition flex items-center space-x-2">
+                  <i class="fas fa-square text-lg"></i>
+                  <span>Square</span>
+                </button>
+              </div>
+            </div>
+      <!-- Canvas -->
+      <div class="overflow-x-scroll w-full h-full border  p-2 bg-gray-200  rounded-lg shadow ">
+        <canvas id="canvas" class="w-full h-full border-2 border-gray-300 "></canvas>
+      </div>
+    </div>
+  
+    <div class="bg-gray-100">
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+          <!-- Tools Section -->
+          <div class="bg-white p-8 rounded-lg shadow-lg flex-1">
+            <!-- Title -->
+            <h2 class="text-xl font-semibold text-center">Tools</h2>
+      
+            <!-- Tool Buttons -->
+            <div class="grid grid-cols-4 gap-4 justify-center mt-4">
+              <button id="resetImageButton" class="bg-blue-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-blue-600 transition flex items-center justify-center">
+                <i class="fas fa-redo text-xl mr-3"></i>
+                <span>Reset Image</span>
+              </button>
+
+              <button id="moveToBackButton" class="bg-purple-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-purple-600 transition flex items-center justify-center">
+                <i class="fas fa-layer-group text-xl mr-3"></i>
+                <span>Push Back</span>
+              </button>
+              <!--
+              <button id="fillHeightButton" class="bg-yellow-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-yellow-600 transition flex items-center justify-center">
+                <i class="fas fa-arrows-alt-v text-xl mr-3"></i>
+                <span>Fill Height</span>
+              </button>-->
+              <button id="alignToBoxButton" class="bg-gray-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-gray-600 transition flex items-center justify-center">
+                <i class="fas fa-align-justify text-xl mr-3"></i>
+                <span>Align Left</span>
+              </button>
+              <button id="downloadButton" class="bg-green-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-green-600 transition flex items-center justify-center">
+                <i class="fas fa-download text-xl mr-3"></i>
+                <span>Download</span>
+              </button>
+            <!-- Background Color Picker -->
+            <div id="pickr-container" class="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-gray-600 transition flex items-center justify-center">
+                <i class="fas fa-palette text-xl mr-3"></i>
+                <span>Background Color</span>
+                </div>
+
+              <button id="fitImageButton" class="bg-indigo-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-indigo-600 transition flex items-center justify-center">
+                <i class="fas fa-compress text-xl mr-3"></i>
+                <span>Fit Image</span>
+              </button>
+
+              <button id="alignUpButton" class="bg-gray-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-purple-600 transition flex items-center justify-center">
+                <i class="fas fa-arrow-up text-xl mr-3"></i>
+                <span>Align Up</span>
+              </button>
+
+              <!--
+              <button id="instagramPreviewButton" class="bg-pink-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-pink-600 transition flex items-center justify-center">
+                <i class="fas fa-eye text-xl"></i>
+                <span>Preview Full</span>
+              </button>-->
+
+              <button id="swipeablePreviewButton" class="bg-blue-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-blue-600 transition flex items-center justify-center">
+                <i class="fas fa-images text-xl mr-3"></i>
+                <span>Preview Post</span>
+              </button>
+
+            </div>
+          </div>
+      
+          <!-- Pages Section -->
+          <div class="bg-white p-8 rounded-lg shadow-lg w-52">
+            <!-- Title -->
+            <h2 class="text-xl font-semibold text-center">Pages</h2>
+      
+            <!-- Page Buttons -->
+            <div class="flex flex-col gap-4 justify-center mt-4">
+              <button id="expandWidthButton" class="bg-teal-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-teal-600 transition flex items-center justify-center">
+                <i class="fas fa-plus text-xl"></i>
+              </button>
+              <button id="reduceWidthButton" class="bg-red-500 text-white px-4 py-4 rounded-lg shadow-md hover:bg-red-600 transition flex items-center justify-center">
+                <i class="fas fa-minus text-xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Preview Modal -->
+<div id="previewModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg relative">
+      <button id="closePreviewModal" class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-lg shadow-md hover:bg-red-600 transition">
+        <i class="fas fa-times"></i>
+      </button>
+      <img id="previewImage" class="max-w-full rounded-lg" alt="Instagram Post Preview">
+    </div>
+  </div>
+
+  <!-- Swipeable Preview Modal -->
+  <div id="swipeableModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg relative max-w-screen-sm w-full">
+      <button id="closeSwipeableModal" class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-lg shadow-md hover:bg-red-600 transition">
+        <i class="fas fa-times"></i>
+      </button>
+      <!-- Swiper Container -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <!-- Slides will be added dynamically -->
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+  </div>
+
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white p-6 mt-8">
+    <div class="container mx-auto text-center">
+      <p class="text-sm">&copy; 2024 Kristof S. H. Horvath. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/editor.js"></script>
+</body>
+</html>
